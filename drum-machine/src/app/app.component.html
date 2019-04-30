@@ -10,7 +10,7 @@
         <button mat-icon-button>
             <mat-icon class="material-icons-round">stop</mat-icon>
         </button>
-        <button mat-icon-button>
+        <button (click)="play()" mat-icon-button>
             <mat-icon class="material-icons-round">play_arrow</mat-icon>
         </button>
         <mat-form-field class="example-full-width">
@@ -32,8 +32,8 @@
   <div class="instrument" *ngFor="let instrument of selectedSequence">
     <div class="name-prop">{{instrument.name}}</div>
     <div class="beat-frame">
-      <div class="beat-square"
-           *ngFor="let step of instrument.steps; let i = index">
+      <div *ngFor="let step of instrument.steps; let i = index"
+       class="beat-square beat-{{i+1}}">
         <div *ngIf="step === 1" class="filled"></div>
       </div>
     </div>

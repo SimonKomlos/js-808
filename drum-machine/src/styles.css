@@ -79,6 +79,10 @@ body {
   background: #282828;
 }
 
+.beat-square.active {
+  background: #484848;
+}
+
 .beat-square>.filled {
   background: #333;
   border-radius: 2px;
@@ -91,6 +95,12 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
+  transition:0.1s ease-in-out;
+}
+
+.beat-square.active>.filled {
+  width: 70%;
+  height: 70%;
 }
 
 .instrument:nth-child(1) .name-prop, .instrument:nth-child(1) .beat-square>.filled {

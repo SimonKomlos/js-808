@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+//Using jQuery to save on time
+import * as $ from 'jquery';
 
 export interface Sequence {
   name: string;
@@ -14,6 +16,7 @@ export interface Sequence {
 export class AppComponent {
 
   bpm:number=60;
+  beat:number=0;
 
   selectedSequence:any;
   sequences: Sequence[] = [
@@ -49,6 +52,22 @@ export class AppComponent {
     console.log(val)
     this.selectedSequence = this.sequences[val].instruments;
     console.log(this.selectedSequence)
+  }
+
+  play() {
+    let speed = ((60/this.bpm)*4);
+    this.beat = 0;
+    let maxBeat = this.selectedSequence[0].steps.length;
+    let timePeriod;
+    clearInterval(timePeriod)
+    timePeriod = setInterval(() => {
+      $('.beat-square').removeClass("active");
+      $('.beat-'+this.beat).addClass("active");
+      this.beat++;
+      if(this.beat > maxBeat) {
+        this.beat = 0;
+      }
+    }, 100)
   }
 
 }
