@@ -16,3 +16,13 @@ body {
   margin-right: 8px;
   vertical-align: text-top;
 }
+
+.right-aligned {
+  text-align: right;
+  width: 100%;
+}
+
+.subheader mat-form-field {
+  font-size: 12px;
+  width: 114px;
+}

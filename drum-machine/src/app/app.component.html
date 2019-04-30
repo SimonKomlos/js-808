@@ -5,5 +5,22 @@
   <mat-toolbar-row class="subheader">
       <img src="./assets/imgs/fire.svg" />
       <span>Control Panel</span>
+
+      <div class="right-aligned">
+        <button mat-icon-button>
+            <mat-icon class="material-icons-round">stop</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon class="material-icons-round">play_arrow</mat-icon>
+        </button>
+        <mat-form-field>
+        <mat-label>Sequences</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let sequence of sequences" [value]="sequence.id">
+            {{sequence.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
   </mat-toolbar-row>
 </mat-toolbar>
