@@ -13,9 +13,12 @@
         <button mat-icon-button>
             <mat-icon class="material-icons-round">play_arrow</mat-icon>
         </button>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="BPM" [(ngModel)]="bpm">
+        </mat-form-field>
         <mat-form-field>
         <mat-label>Sequences</mat-label>
-        <mat-select (selectionChange)="setSelectedSequence($event.value)">
+        <mat-select [value]="0" (selectionChange)="setSelectedSequence($event.value)">
           <mat-option *ngFor="let sequence of sequences" [value]="sequence.id">
             {{sequence.name}}
           </mat-option>
@@ -29,7 +32,8 @@
   <div class="instrument" *ngFor="let instrument of selectedSequence">
     <div class="name-prop">{{instrument.name}}</div>
     <div class="beat-frame">
-      <div class="beat-square" *ngFor="let step of instrument.steps">
+      <div class="beat-square"
+           *ngFor="let step of instrument.steps; let i = index">
         <div *ngIf="step === 1" class="filled"></div>
       </div>
     </div>

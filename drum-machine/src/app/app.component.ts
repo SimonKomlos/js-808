@@ -13,6 +13,8 @@ export interface Sequence {
 })
 export class AppComponent {
 
+  bpm:number=60;
+
   selectedSequence:any;
   sequences: Sequence[] = [
     {
@@ -32,12 +34,16 @@ export class AppComponent {
           steps: [1,0,1,1,0,0,0,1,0,0,1,1,0,0,0,1]
         },
         {
-          name: "Closed Hat",
+          name: "Crash",
           steps: [1,1,1,1,0,0,0,1,0,0,1,1,0,0,0,1]
         },
       ]
     }
   ]
+
+  ngOnInit() {
+    this.selectedSequence = this.sequences[0].instruments;
+  }
 
   setSelectedSequence(val) {
     console.log(val)

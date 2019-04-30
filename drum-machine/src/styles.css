@@ -5,6 +5,7 @@ body {
   padding: 0;
   font-family: Roboto,"Helvetica Neue",sans-serif;
   margin: 0;
+  background: #191919;
 }
 
 .subheader {
@@ -31,6 +32,10 @@ body {
   margin: 36px;
 }
 
+.instrument {
+  margin-bottom: 3px;
+}
+
 .name-prop {
   display: inline-block;
   width: 100px;
@@ -41,6 +46,7 @@ body {
   background: #333;
   color: #fff;
   border-radius: 2px;
+  margin-right: 3px;
 }
 
 .beat-frame {
@@ -59,6 +65,20 @@ body {
   position: relative;
 }
 
+.beat-square:nth-child(4n),
+.beat-square:nth-child(4n-1),
+.beat-square:nth-child(4n-2),
+.beat-square:nth-child(4n-3) {
+  background: #333;
+}
+
+.beat-square:nth-child(8n),
+.beat-square:nth-child(8n-1),
+.beat-square:nth-child(8n-2),
+.beat-square:nth-child(8n-3) {
+  background: #282828;
+}
+
 .beat-square>.filled {
   background: #333;
   border-radius: 2px;
@@ -74,5 +94,14 @@ body {
 }
 
 .instrument:nth-child(1) .name-prop, .instrument:nth-child(1) .beat-square>.filled {
-  background: #4CAF50 !important;
+  background: #ef5350 !important;
+}
+.instrument:nth-child(2) .name-prop, .instrument:nth-child(2) .beat-square>.filled {
+  background: #ff7043 !important;
+}
+.instrument:nth-child(3) .name-prop, .instrument:nth-child(3) .beat-square>.filled {
+  background: #29b6f6 !important;
+}
+.instrument:nth-child(4) .name-prop, .instrument:nth-child(4) .beat-square>.filled {
+  background: #5c6bc0 !important;
 }
