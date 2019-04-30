@@ -26,3 +26,53 @@ body {
   font-size: 12px;
   width: 114px;
 }
+
+.frame {
+  margin: 36px;
+}
+
+.name-prop {
+  display: inline-block;
+  width: 100px;
+  padding: 7px 12px 7px 0;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: #333;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.beat-frame {
+  display: inline-block;
+  width: calc( 100% - 120px);
+  vertical-align: top;
+}
+
+.beat-square {
+  width: 32px;
+  height: 32px;
+  background: #eaeaea;
+  margin: 0 4px;
+  display: inline-block;
+  border-radius: 2px;
+  position: relative;
+}
+
+.beat-square>.filled {
+  background: #333;
+  border-radius: 2px;
+  width: 40%;
+  height: 40%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.instrument:nth-child(1) .name-prop, .instrument:nth-child(1) .beat-square>.filled {
+  background: #4CAF50 !important;
+}
