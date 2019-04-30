@@ -1,22 +1,27 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row class="mat-elevation-z6">
-      <span>Splice 808</span>
+  <div class="mat-elevation-z6">
+    <mat-toolbar-row class="setMaxWidth">
+      <span>Splice Interview</span>
     </mat-toolbar-row>
-  <mat-toolbar-row class="subheader">
+  </div>
+  <mat-toolbar-row class="subheader setMaxWidth">
       <img src="./assets/imgs/fire.svg" />
       <span>Control Panel</span>
 
       <div class="right-aligned">
-        <button mat-icon-button>
+        <button (click)="stop()" mat-icon-button>
             <mat-icon class="material-icons-round">stop</mat-icon>
         </button>
-        <button (click)="play()" mat-icon-button>
+        <button (click)="play()" *ngIf="!isPlaying" mat-icon-button>
             <mat-icon class="material-icons-round">play_arrow</mat-icon>
         </button>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="BPM" [(ngModel)]="bpm">
+        <button (click)="pause()" *ngIf="isPlaying" mat-icon-button>
+            <mat-icon class="material-icons-round">pause</mat-icon>
+        </button>
+        <mat-form-field class="bpm">
+          <input disabled="{{isPlaying || isPaused}}" matInput placeholder="BPM" [(ngModel)]="bpm">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="sequence">
         <mat-label>Sequences</mat-label>
         <mat-select [value]="0" (selectionChange)="setSelectedSequence($event.value)">
           <mat-option *ngFor="let sequence of sequences" [value]="sequence.id">
@@ -28,7 +33,7 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="frame">
+<div class="frame setMaxWidth">
   <div class="instrument" *ngFor="let instrument of selectedSequence">
     <div class="name-prop">{{instrument.name}}</div>
     <div class="beat-frame">

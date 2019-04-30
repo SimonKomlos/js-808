@@ -29,11 +29,14 @@ body {
 }
 
 .frame {
-  margin: 36px;
+  overflow-x: auto;
+  margin-top: 36px !important;
 }
 
 .instrument {
   margin-bottom: 3px;
+  text-align: center;
+  min-width: 838px;
 }
 
 .name-prop {
@@ -51,7 +54,6 @@ body {
 
 .beat-frame {
   display: inline-block;
-  width: calc( 100% - 120px);
   vertical-align: top;
 }
 
@@ -95,7 +97,6 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  transition:0.1s ease-in-out;
 }
 
 .beat-square.active>.filled {
@@ -114,4 +115,17 @@ body {
 }
 .instrument:nth-child(4) .name-prop, .instrument:nth-child(4) .beat-square>.filled {
   background: #5c6bc0 !important;
+}
+.instrument:nth-child(5) .name-prop, .instrument:nth-child(5) .beat-square>.filled {
+  background: #4caf50 !important;
+}
+
+.bpm {
+  width: 60px !important;
+  margin: 0 12px;
+}
+
+.setMaxWidth {
+  max-width: 838px;
+  margin: 0 auto;
 }
