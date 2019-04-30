@@ -1,3 +1,28 @@
+# Read me 😊
+
+This was a really fun exercise! It was a little tough not being a musician and understanding bpm's, tempo, beats etc.. but I tried to make due.
+
+I ended up spending just about 4 hours. Took a few breaks. 
+
+Considering the time constraint, I really wanted to make sure the aspects that I love about front end developing were present. UI and UX specifically and I think it shows. 
+
+I ended up going with Angular, Angular Material, and a little jQuery, as Angular falls short on manipulating the DOM 🙁. An aspect I would've avoided without a strict time constraint. 
+
+Hardest part for me was figuring out the data structure and what the best way of going about that might be, but I think I found a clean solution in the end. 
+
+Here is a screenshot: 
+
+<img src="https://i.gyazo.com/c8c0392e8756fd1dfab45e8b53420911.gif" width="70%"/>
+
+To run this application on your machine: 
+
+  - Clone the repo
+  - In your cmd: `cd drum-machine`
+  - `npm install`
+  - then `ng serve`
+
+Should do the trick 😊
+
 # JS-808 Practice exercise
 
 The goal of this exercise is to practice designing models and interfaces, and to get a feel for how you architect front-end code.
