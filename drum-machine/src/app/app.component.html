@@ -15,7 +15,7 @@
         </button>
         <mat-form-field>
         <mat-label>Sequences</mat-label>
-        <mat-select>
+        <mat-select (selectionChange)="setSelectedSequence($event.value)">
           <mat-option *ngFor="let sequence of sequences" [value]="sequence.id">
             {{sequence.name}}
           </mat-option>
@@ -26,10 +26,12 @@
 </mat-toolbar>
 
 <div class="frame">
-  <div class="instrument">
-    <div class="name-prop">Kick</div>
+  <div class="instrument" *ngFor="let instrument of selectedSequence">
+    <div class="name-prop">{{instrument.name}}</div>
     <div class="beat-frame">
-      <div class="beat-square"><div class="filled"></div></div>
+      <div class="beat-square" *ngFor="let step of instrument.steps">
+        <div *ngIf="step === 1" class="filled"></div>
+      </div>
     </div>
   </div>
 </div>

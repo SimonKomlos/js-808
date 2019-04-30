@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 export interface Sequence {
   name: string;
   id: number;
-  instrument: object;
+  instruments: object;
 }
 
 @Component({
@@ -13,11 +13,12 @@ export interface Sequence {
 })
 export class AppComponent {
 
+  selectedSequence:any;
   sequences: Sequence[] = [
     {
       name: "Sequence #1",
-      id: 1,
-      instrument: [
+      id: 0,
+      instruments: [
         {
           name: "Kick",
           steps: [0,0,1,1,0,0,0,1,0,0,1,1,0,0,0,1]
@@ -38,5 +39,10 @@ export class AppComponent {
     }
   ]
 
+  setSelectedSequence(val) {
+    console.log(val)
+    this.selectedSequence = this.sequences[val].instruments;
+    console.log(this.selectedSequence)
+  }
 
 }
