@@ -4,6 +4,7 @@
       <span>Splice Interview</span>
     </mat-toolbar-row>
   </div>
+  <!-- Drum Machine Controls -->
   <mat-toolbar-row class="subheader setMaxWidth">
       <img src="./assets/imgs/fire.svg" />
       <span>Control Panel</span>
@@ -33,6 +34,8 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+
+<!-- Drum Machine visual -->
 <div class="frame setMaxWidth">
   <div class="instrument" *ngFor="let instrument of selectedSequence">
     <div class="name-prop">{{instrument.name}}</div>

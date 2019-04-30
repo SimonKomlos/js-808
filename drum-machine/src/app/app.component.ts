@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 //Using jQuery to save on time
 import * as $ from 'jquery';
 
+// interface for the Sequence
 export interface Sequence {
   name: string;
   id: number;
@@ -15,6 +16,7 @@ export interface Sequence {
 })
 export class AppComponent {
 
+  //Pre-defined variables
   bpm:number=128;
   beat:number=1;
 
@@ -24,6 +26,8 @@ export class AppComponent {
   isPaused:boolean=false;
 
   selectedSequence:any;
+
+  //My data.. could've imported, but figured this would be ok 😊
   sequences: Sequence[] = [
     {
       name: "Sequence #1",
@@ -93,24 +97,30 @@ export class AppComponent {
     }
   ]
 
+  //On init set the selected sequence to being the first in `sequences`
   ngOnInit() {
     this.selectedSequence = this.sequences[0].instruments;
   }
 
+  //On change of the selector, change the `selectedSequence` value.
   setSelectedSequence(val) {
     this.selectedSequence = this.sequences[val].instruments;
     this.stop();
   }
 
   play() {
+    //Not quite sure about the bpm, tempo, etc. Would need to do more research :/
     let speed = ((60/this.bpm)*4)/8;
     this.isPlaying = true;
     this.isPaused = false;
+    //find the max columns. I'm assuming each instrument has the same length.
     let maxBeat = this.selectedSequence[0].steps.length;
     this.timeInterval = setInterval(() => {
+      //Remove classes and add the `active` class to the correct beat.
       $('.beat-square').removeClass("active");
       $('.beat-'+this.beat).addClass("active");
       this.beat++;
+      //If we've hit the end, start over.
       if(this.beat > maxBeat) {
         this.beat = 1;
       }
